@@ -4,13 +4,14 @@
 
 ## To install:
 ```
-Execute "npm install"
+Clone Repo.
+Execute "npm install".
 ```
 ## To run:
 ```
 Execute npm start
 Go to folder script
-Execute npn client "Text example", you can enter any text that you wan.
+Execute npn client "Text example", you can enter any text that you want.
 ```
 
 
