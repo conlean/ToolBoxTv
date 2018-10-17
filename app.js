@@ -7,7 +7,7 @@ var port = 8080;
 
 //default
 app.get('/', function (req, res) {
-  res.send('Hello World!');
+  res.send('Hello ToolBoxTv api!');
 });
 
 //message

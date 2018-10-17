@@ -1,30 +1,27 @@
-var supertest = require("supertest");
-var should = require("should");
+//Test module
+'use strict';
 
-// This agent refers to PORT where program is runninng.
+var app = require('../app'),
+chai = require('chai'),
+request = require('supertest');
+var expect = chai.expect;
 
-var server = supertest.agent("http://localhost:8080");
-
-// UNIT test begin
-
-describe("Unit test ToolBoxTv",function(){
-
-  // #1 should return home page
-
-  it("should return default route",function(done){
-
-    // calling home page api
-    server
-    .get("/")
-    .expect("Content-type",/json/)
-    .expect(200) // THis is HTTP response
-    .end(function(err,res){
-      // HTTP status should be 200
-      res.status.should.equal(200);
-      // Error key should be false.
-      res.body.error.should.equal(false);
+it("Responds with 'Hello ToolBoxTv api!'", function(done) {
+    request(app)
+        .get("/")
+        .expect(200)
+        .expect("Hello ToolBoxTv api!")
+      //  .end(done);
       done();
-    });
-  });
+});
+
+it("Responds with 'Text Exmample ToolBoxTv!'", function(done) {
+    request(app)
+        .get("/api/message")
+        .query({ str: 'Text Exmample ToolBoxTv!' })
+        .expect(200)
+        .expect("Text Exmample ToolBoxTv!")
+      //  .end(done);
+      done();
 
 });
