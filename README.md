@@ -11,11 +11,12 @@ Execute "npm install".
 ```
 Execute npm start
 Go to folder script
-Execute "npn client 'Text example'", you can enter any text that you want.
+Execute "node client 'Text example'", you can enter any text that you want.
 ```
 
 ## To Test:
 ```
+Stop Server if is running.
 Execute npm test
 ```
 
