@@ -1,7 +1,13 @@
 'use strict'
 
 var rp = require('request-promise');
-var message = process.argv.slice(2);
+var message = '' ;
+
+process.argv.forEach(function (val, index, array) {
+   if (index > 1) {
+    message = message.concat( " " + val);
+    }
+});
 
 var options = {
     uri: 'http://localhost:8080/api/message',

@@ -1,27 +1,34 @@
-//Test module
 'use strict';
 
 var app = require('../app'),
-chai = require('chai'),
-request = require('supertest');
+  chai = require('chai'),
+  request = require('supertest');
+
 var expect = chai.expect;
 
-it("Responds with 'Hello ToolBoxTv api!'", function(done) {
-    request(app)
-        .get("/")
-        .expect(200)
-        .expect("Hello ToolBoxTv api!")
-      //  .end(done);
-      done();
-});
+describe('API Tests', function() {
+  var task = {
+    name: 'integration test'
+  };
+  describe('# Get default route', function() {
+    it("Should Responds with 'Hello ToolBoxTv api!'", function(done) {
+      request(app).get('/').end(function(err, res) {
+        expect(200);
+        expect("Hello ToolBoxTv api!");
+        done();
+      });
+    });
+  });
 
-it("Responds with 'Text Exmample ToolBoxTv!'", function(done) {
-    request(app)
-        .get("/api/message")
-        .query({ str: 'Text Exmample ToolBoxTv!' })
-        .expect(200)
-        .expect("Text Exmample ToolBoxTv!")
-      //  .end(done);
-      done();
-
+  describe('## Get message ', function() {
+    it("Should Responds with 'Text Exmample ToolBoxTv!'", function(done) {
+      request(app).get("/api/message")
+      .query({ str: 'Text Exmample ToolBoxTv!' })
+      .end(function(err, res) {
+        expect(200);
+        expect("Text Exmample ToolBoxTv!");
+        done();
+      });
+    });
+  });
 });
